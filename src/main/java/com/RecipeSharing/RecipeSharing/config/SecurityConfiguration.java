@@ -36,7 +36,7 @@ public class SecurityConfiguration {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf->csrf.disable())
-                .authorizeHttpRequests((authz) -> authz.requestMatchers("api/v1/auth/**","api/v1/auth/authenticate","api/v1/recipes").permitAll()
+                .authorizeHttpRequests((authz) -> authz.requestMatchers("/","api/v1/auth/**","api/v1/auth/authenticate","api/v1/recipes").permitAll()
                 .anyRequest().authenticated())
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class)
